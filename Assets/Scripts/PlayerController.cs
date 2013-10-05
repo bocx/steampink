@@ -5,6 +5,8 @@ public class PlayerController : MonoBehaviour {
 	
 	public float speed;
 	
+	public AudioClip winAudio;
+	
 	private int count;
 	
 	public GUIText countText;
@@ -61,6 +63,7 @@ public class PlayerController : MonoBehaviour {
 		
 		if (count >= 10) {
 			winText.text = "Suksee!";
+			audio.PlayOneShot(winAudio);
 		}
 	}
 }
