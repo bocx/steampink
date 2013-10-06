@@ -18,8 +18,8 @@ public class PlayerController : MonoBehaviour {
 	void Start	()
 	{
 		count = 0;
-		SetCountText();
-		winText.text = "";
+		//SetCountText();
+		//winText.text = "";
 		
 		rigidbody.centerOfMass = centerOfMass;
 	}
@@ -47,7 +47,7 @@ public class PlayerController : MonoBehaviour {
 		if (other.gameObject.tag == "Pickup") {
 			other.gameObject.SetActive(false);
 			count += 1;
-			SetCountText();
+			//SetCountText();
 		}
 	}
 	
