@@ -877,6 +877,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prototypeCannonBall: {fileID: 11400000, guid: 7a113831243bed049ae556abd75ddb68,
     type: 2}
+  projectileVelocity: 100
 --- !u!124 &12400000
 Behaviour:
   m_ObjectHideFlags: 1

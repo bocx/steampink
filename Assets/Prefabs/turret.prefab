@@ -134,7 +134,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2962e0fad154fc0478956835e43dd0f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prototypeCannonBall: {fileID: 0}
+  prototypeCannonBall: {fileID: 11400000, guid: 7a113831243bed049ae556abd75ddb68,
+    type: 2}
+  projectileVelocity: 100
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
