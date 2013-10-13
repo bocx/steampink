@@ -4,6 +4,7 @@ using System.Collections;
 public class Shoot : MonoBehaviour {
 	
 	public CannonBall prototypeCannonBall;
+	public float projectileVelocity = 100;
 	
 	// Use this for initialization
 	void Start () {
@@ -12,13 +13,19 @@ public class Shoot : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		if(Input.GetKey(KeyCode.UpArrow)){
+			projectileVelocity += 10*Time.deltaTime;
+		}
+		if(Input.GetKey(KeyCode.DownArrow)){
+			projectileVelocity -= 10*Time.deltaTime;
 	
-		float fire = Input.GetAxis("Fire");
+		}
+		bool fire = Input.GetButtonDown("Fire");
 		
-		if (fire > 0f) {
-			CannonBall ball = (CannonBall)Instantiate(prototypeCannonBall, transform.position + transform.right*-5f + transform.up*2f, Quaternion.identity);
-			ball.rigidbody.AddForce(transform.right*-2000f);
-			rigidbody.AddForce(transform.right*50f);
+		if (fire) {
+			CannonBall ball = (CannonBall)Instantiate(prototypeCannonBall, transform.position + transform.right*-0f + transform.up*2f, Quaternion.identity);
+			ball.rigidbody.AddForce(transform.up*projectileVelocity,ForceMode.VelocityChange);
+			//rigidbody.AddForce(transform.right*50f);
 		}
 		
 	}
