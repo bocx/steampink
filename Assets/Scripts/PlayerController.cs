@@ -5,6 +5,8 @@ public class PlayerController : MonoBehaviour {
 	
 	public float speed;
 	
+	public int hitpoints = 100;
+	
 	public AudioClip winAudio;
 	
 	private int count;
@@ -12,6 +14,8 @@ public class PlayerController : MonoBehaviour {
 	public GUIText countText;
 	
 	public GUIText winText;
+	
+	public GUIText healthDisplay;
 	
 	public Vector3 centerOfMass;
 	
@@ -27,6 +31,7 @@ public class PlayerController : MonoBehaviour {
 	void Update()
 	{
 		transform.position = new Vector3(transform.position.x, transform.position.y, 0f);
+		healthDisplay.text = hitpoints.ToString();
 		
 	}
 	
@@ -64,6 +69,13 @@ public class PlayerController : MonoBehaviour {
 		if (count >= 10) {
 			winText.text = "Suksee!";
 			audio.PlayOneShot(winAudio);
+		}
+	}
+	
+	public void ApplyDamage(int amount){
+		hitpoints -= amount;
+		if(hitpoints <= 0){
+			Destroy(gameObject);
 		}
 	}
 }

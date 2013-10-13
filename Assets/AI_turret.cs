@@ -8,18 +8,7 @@ public class AI_turret : MonoBehaviour {
 	public CannonBall weaponProjectile;
 	
 	
-	private float shootTimer = 0;
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		if(hitpoints <= 0){
-			Destroy(gameObject);
-		}
-	}
+	private float shootTimer = 0;	
 	
 	void OnTriggerStay (Collider target){
 		if(target.CompareTag ("Player")){
@@ -31,6 +20,13 @@ public class AI_turret : MonoBehaviour {
 				ball.rigidbody.AddForce(transform.forward * 50f, ForceMode.Impulse);
 				shootTimer = 0;
 			}
+		}
+	}
+	
+	public void ApplyDamage(int amount){
+		hitpoints -= amount;
+		if(hitpoints <= 0){
+			Destroy(gameObject);
 		}
 	}
 }
