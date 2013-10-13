@@ -17,16 +17,9 @@ public class AI_turret : MonoBehaviour {
 			shootTimer += Time.deltaTime;
 			if (shootTimer >= rateOfFire){
 				CannonBall ball = (CannonBall)Instantiate(weaponProjectile, transform.position + transform.forward * 2 , Quaternion.identity);
-				ball.rigidbody.AddForce(transform.forward * 50f, ForceMode.Impulse);
+				ball.rigidbody.AddForce(transform.forward * 50f + transform.up * Random.Range(-10,10), ForceMode.Impulse);
 				shootTimer = 0;
 			}
-		}
-	}
-	
-	public void ApplyDamage(int amount){
-		hitpoints -= amount;
-		if(hitpoints <= 0){
-			Destroy(gameObject);
 		}
 	}
 }
