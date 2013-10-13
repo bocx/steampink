@@ -31,7 +31,6 @@ GameObject:
   - 23: {fileID: 2300002}
   - 114: {fileID: 11400002}
   - 114: {fileID: 11400004}
-  - 114: {fileID: 11400000}
   m_Layer: 0
   m_Name: shotgun
   m_TagString: Untagged
@@ -124,20 +123,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100002}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2962e0fad154fc0478956835e43dd0f9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prototypeCannonBall: {fileID: 11400000, guid: 7a113831243bed049ae556abd75ddb68,
-    type: 2}
-  projectileVelocity: 100
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -161,8 +146,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf446a57227c5425391a82632d3fc9b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prototypeCannonBall: {fileID: 11400000, guid: 7a113831243bed049ae556abd75ddb68,
-    type: 2}
+  prototypeCannonBall: {fileID: 0}
 --- !u!136 &13600000
 CapsuleCollider:
   m_ObjectHideFlags: 1
