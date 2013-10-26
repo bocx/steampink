@@ -638,6 +638,10 @@ Prefab:
       value: 
       objectReference: {fileID: 11400000, guid: 7a113831243bed049ae556abd75ddb68,
         type: 2}
+    - target: {fileID: 11400000, guid: 8d65f255f173a4807b7e3a5bf380da7f, type: 2}
+      propertyPath: lol
+      value: 
+      objectReference: {fileID: 1308205972}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8d65f255f173a4807b7e3a5bf380da7f, type: 2}
   m_RootGameObject: {fileID: 1308205965}
@@ -1331,6 +1335,7 @@ GameObject:
   - 23: {fileID: 1308205969}
   - 114: {fileID: 1308205968}
   - 114: {fileID: 1308205967}
+  - 82: {fileID: 1308205972}
   m_Layer: 0
   m_Name: turret
   m_TagString: Untagged
@@ -1365,7 +1370,7 @@ MonoBehaviour:
   prototypeCannonBall: {fileID: 11400000, guid: 7a113831243bed049ae556abd75ddb68,
     type: 2}
   projectileVelocity: 100
-  lol: {fileID: 0}
+  lol: {fileID: 1308205972}
 --- !u!114 &1308205968
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1419,6 +1424,65 @@ MeshFilter:
   m_PrefabInternal: {fileID: 572509559}
   m_GameObject: {fileID: 1308205965}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!82 &1308205972
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 8200000, guid: 8d65f255f173a4807b7e3a5bf380da7f,
+    type: 2}
+  m_PrefabInternal: {fileID: 572509559}
+  m_GameObject: {fileID: 1308205965}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_audioClip: {fileID: 8300000, guid: c41abb0062419e041bd5137cfafb929a, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
 --- !u!1 &1338438718
 GameObject:
   m_ObjectHideFlags: 0
