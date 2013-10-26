@@ -10,4 +10,10 @@ public class PinkServer : MonoBehaviour {
 	void OnPlayerConnected(NetworkPlayer player) {
 		Debug.Log("Player connected");
 	}
+	
+	void OnPlayerDisconnected(NetworkPlayer player) {
+		Debug.Log("Clean up after player " +  player);
+		Network.RemoveRPCs(player);
+		Network.DestroyPlayerObjects(player);
+	}
 }

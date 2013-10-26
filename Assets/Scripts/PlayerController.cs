@@ -42,10 +42,11 @@ public class PlayerController : MonoBehaviour {
 		
 		Vector3 movement = new Vector3(moveHorizontal*0.7f, 0.5f+moveVertical*1.6f, 0f);
 		
-		rigidbody.AddForce(movement * speed * Time.deltaTime);
+		Vector3 force = movement * speed * Time.deltaTime;
 		
+		rigidbody.AddForce(force);
 		
-	    rigidbody.rotation = SelfRightRotation(rigidbody.rotation, Time.deltaTime/2);
+	    rigidbody.rotation = SelfRightRotation(rigidbody.rotation, Time.deltaTime/2, force);
 	}
 	
 	void OnTriggerEnter(Collider other) {
@@ -56,9 +57,9 @@ public class PlayerController : MonoBehaviour {
 		}
 	}
 	
-	Quaternion SelfRightRotation(Quaternion rotation, float deltaTime)
+	Quaternion SelfRightRotation(Quaternion rotation, float deltaTime, Vector3 force)
 	{
-		return Quaternion.Slerp(rotation, Quaternion.AngleAxis(0, Vector3.left), deltaTime);
+		return Quaternion.Slerp(rotation, Quaternion.LookRotation(Vector3.Cross(force, -Vector3.up)), deltaTime * 2f);
 	}
 	
 	
@@ -73,9 +74,24 @@ public class PlayerController : MonoBehaviour {
 	}
 	
 	public void ApplyDamage(int amount){
+		
+		if (Network.isServer) {
+			return;
+		}
+		
 		hitpoints -= amount;
 		if(hitpoints <= 0){
-			Destroy(gameObject);
+			RemoveBufferedInstantiate(networkView.viewID);
+			Network.Destroy(gameObject);
 		}
+	}
+	
+	[RPC]
+	void RemoveBufferedInstantiate (NetworkViewID viewID) {
+	    if (Network.isServer) {
+	        Network.RemoveRPCs (viewID);
+	    } else {
+	        networkView.RPC ("RemoveBufferedInstantiate", RPCMode.Server, viewID);
+	    }
 	}
 }
