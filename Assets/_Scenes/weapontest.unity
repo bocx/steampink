@@ -1365,6 +1365,7 @@ MonoBehaviour:
   prototypeCannonBall: {fileID: 11400000, guid: 7a113831243bed049ae556abd75ddb68,
     type: 2}
   projectileVelocity: 100
+  lol: {fileID: 0}
 --- !u!114 &1308205968
 MonoBehaviour:
   m_ObjectHideFlags: 0
