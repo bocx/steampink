@@ -5,6 +5,7 @@ public class Shoot : MonoBehaviour {
 	
 	public CannonBall prototypeCannonBall;
 	public float projectileVelocity = 100;
+	public AudioSource lol;
 	
 	// Use this for initialization
 	void Start () {
@@ -25,6 +26,7 @@ public class Shoot : MonoBehaviour {
 		if (fire) {
 			CannonBall ball = (CannonBall)Instantiate(prototypeCannonBall, transform.position + transform.right*-0f + transform.up*2f, Quaternion.identity);
 			ball.rigidbody.AddForce(transform.up*projectileVelocity,ForceMode.VelocityChange);
+			lol.Play();
 			//rigidbody.AddForce(transform.right*50f);
 		}
 		
